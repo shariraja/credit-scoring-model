@@ -255,20 +255,26 @@ html, body,
     margin-bottom: .25rem !important;
 }
 
+/* ── Shared side-glow animation for all input boxes ── */
+@keyframes sideGlow {
+    0%,100% { box-shadow: -3px 0 12px rgba(124,58,237,.55), 3px 0 12px rgba(6,182,212,.35); }
+    50%      { box-shadow: -3px 0 20px rgba(6,182,212,.65), 3px 0 20px rgba(124,58,237,.45); }
+}
+
 /* Number inputs */
 [data-testid="stNumberInput"] input {
     background: #0A0E1A !important;
-    border: 1px solid rgba(124,58,237,.3) !important;
+    border: 1px solid rgba(124,58,237,.45) !important;
     border-radius: 10px !important;
     color: #C4B5FD !important;
     font-family: 'JetBrains Mono', monospace !important;
     font-size: .93rem !important;
     font-weight: 500 !important;
-    transition: border-color .2s, box-shadow .2s !important;
+    animation: sideGlow 3s ease-in-out infinite !important;
+    transition: border-color .2s !important;
 }
 [data-testid="stNumberInput"] input:focus {
     border-color: #7C3AED !important;
-    box-shadow: 0 0 0 3px rgba(124,58,237,.16) !important;
     outline: none !important;
     color: #DDD6FE !important;
 }
@@ -283,18 +289,18 @@ html, body,
     background: rgba(124,58,237,.22) !important;
 }
 
-/* Selectboxes — same border/bg as number inputs */
+/* Selectboxes — exact same as number inputs */
 [data-testid="stSelectbox"] > div > div {
     background: #0A0E1A !important;
-    border: 1px solid rgba(124,58,237,.3) !important;
+    border: 1px solid rgba(124,58,237,.45) !important;
     border-radius: 10px !important;
     color: #C4B5FD !important;
     font-family: 'Inter', sans-serif !important;
-    transition: border-color .2s, box-shadow .2s !important;
+    animation: sideGlow 3s ease-in-out infinite !important;
+    transition: border-color .2s !important;
 }
 [data-testid="stSelectbox"] > div > div:hover {
-    border-color: rgba(124,58,237,.55) !important;
-    box-shadow: 0 0 0 3px rgba(124,58,237,.12) !important;
+    border-color: #7C3AED !important;
 }
 /* selected text color */
 [data-testid="stSelectbox"] [data-baseweb="select"] span {
